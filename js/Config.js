@@ -73,10 +73,13 @@ Config.columnAdd('Population',                              'int',      null,   
 Config.columnAdd('Confirmed<br>(current)',                  'int',      100,    1000,   10000);
 Config.columnAdd('Confirmed<br>(last)',                     'int',      100,    1000,   10000);
 Config.columnAdd('Confirmed<br>(change)',                   'float',    1,      25,     50,     function(dataTable, row) { return ((dataTable.cell(row, 2).text() / dataTable.cell(row, 3).text()) - 1).toPercent(); } );
+Config.columnAdd('Recovered<br>(current)',                  'int',      100,    1000,   10000);
+Config.columnAdd('Recovered<br>(last)',                     'int',      100,    1000,   10000);
+Config.columnAdd('Recovered<br>(change)',                   'float',    1,      25,     50,     function(dataTable, row) { return ((dataTable.cell(row, 5).text() / dataTable.cell(row, 6).text()) - 1).toPercent(); } );
 Config.columnAdd('Deaths<br>(current)',                     'int',      100,    1000,   10000);
 Config.columnAdd('Deaths<br>(last)',                        'int',      100,    1000,   10000);
-Config.columnAdd('Deaths<br>(change)',                      'float',    1,      25,     50,     function(dataTable, row) { return (( dataTable.cell(row, 5).text() / dataTable.cell(row, 6).text()) - 1).toPercent(); } );
-Config.columnAdd('Case Fatality Rate',                      'float',    1,      10,     25,     function(dataTable, row) { return (  dataTable.cell(row, 5).text() / dataTable.cell(row, 2).text()).toPercent(); } );
+Config.columnAdd('Deaths<br>(change)',                      'float',    1,      25,     50,     function(dataTable, row) { return (( dataTable.cell(row, 8).text() / dataTable.cell(row, 9).text()) - 1).toPercent(); } );
+Config.columnAdd('Case Fatality Rate',                      'float',    1,      10,     25,     function(dataTable, row) { return (  dataTable.cell(row, 8).text() / dataTable.cell(row, 2).text()).toPercent(); } );
 Config.columnAdd('Infection Chance<br>(1 person met)',      'float',    1,      25,     50,     function(dataTable, row) { return (  dataTable.cell(row, 2).text() / dataTable.cell(row, 1).text()).toPercent(); });
 Config.columnAdd('Infection Chance<br>(10 persons met)',    'float',    1,      25,     50,     function(dataTable, row) { return (( dataTable.cell(row, 2).text() / dataTable.cell(row, 1).text()) * 10).toPercent(); } );
 Config.columnAdd('Infection Chance<br>(50 persons met)',    'float',    1,      25,     50,     function(dataTable, row) { return (( dataTable.cell(row, 2).text() / dataTable.cell(row, 1).text()) * 50).toPercent(); });

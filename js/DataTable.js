@@ -81,8 +81,8 @@ class DataTable
         var population  = this.cell(row, 1).text();
         var infCurr     = this.cell(row, 2).text();
         var infLast     = this.cell(row, 3).text();
-        var fatCurr     = this.cell(row, 5).text();
-        var fatLast     = this.cell(row, 6).text();
+        var fatCurr     = this.cell(row, 8).text();
+        var fatLast     = this.cell(row, 9).text();
 
         var infStats = this.predictDaysUntil(population, infCurr, infLast, 0.95);
         var deaStats = this.predictDaysUntil(population, fatCurr, fatLast, 0.95);
@@ -94,13 +94,15 @@ class DataTable
         $(row).attr('data-tooltip', tooltipText);
     }
 
-    updateData(row, population, infections, infectionsLast, fatalities, fatalitiesLast)
+    updateData(row, population, infections, infectionsLast, recovered, recoveredLast, fatalities, fatalitiesLast)
     {
         this.updateCell(row, 1, population);
         this.updateCell(row, 2, infections);
         this.updateCell(row, 3, infectionsLast);
-        this.updateCell(row, 5, fatalities);
-        this.updateCell(row, 6, fatalitiesLast);
+        this.updateCell(row, 5, recovered);
+        this.updateCell(row, 6, recoveredLast);
+        this.updateCell(row, 8, fatalities);
+        this.updateCell(row, 9, fatalitiesLast);
         this.updateRow(row);
     }
 

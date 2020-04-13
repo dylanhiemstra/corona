@@ -154,6 +154,7 @@ class CoronaTracker
             Config.alias(country) + ' ['+d.countryCode+']', 
             d.population, 
             d.confirmed.current, d.confirmed.previous, d.confirmed.change.relative,
+            d.recovered.current, d.recovered.previous, d.recovered.change.relative,
             d.deaths.current, d.deaths.previous, d.deaths.change.relative,
             d.caseFatalityRate,
             d.infectionChance,
@@ -216,7 +217,7 @@ class CoronaTracker
             function(key, v) 
             {
                 var i = rowIDs.indexOf(v[0]);
-                CoronaTracker.tblData.updateData(i, v[1], v[2], v[3], v[5], v[6]);
+                CoronaTracker.tblData.updateData(i, v[1], v[2], v[3], v[5], v[6], v[8], v[9]);
             }
         );
 
@@ -312,11 +313,13 @@ class CoronaTracker
             if (inList(CoronaTracker.tblData.val(rows[i], 0).toUpperCase(), filter)) 
             {
                 rows[i].style.display = "";
-                totals.population    += CoronaTracker.tblData.valNumeric(rows[i], 1);
-                totals.infected      += CoronaTracker.tblData.valNumeric(rows[i], 2);
-                totals.infected_last += CoronaTracker.tblData.valNumeric(rows[i], 3);
-                totals.dead          += CoronaTracker.tblData.valNumeric(rows[i], 5);
-                totals.dead_last     += CoronaTracker.tblData.valNumeric(rows[i], 6);
+                totals.population     += CoronaTracker.tblData.valNumeric(rows[i], 1);
+                totals.infected       += CoronaTracker.tblData.valNumeric(rows[i], 2);
+                totals.infected_last  += CoronaTracker.tblData.valNumeric(rows[i], 3);
+                totals.recovered      += CoronaTracker.tblData.valNumeric(rows[i], 5);
+                totals.recovered_last += CoronaTracker.tblData.valNumeric(rows[i], 6);
+                totals.dead           += CoronaTracker.tblData.valNumeric(rows[i], 8);
+                totals.dead_last      += CoronaTracker.tblData.valNumeric(rows[i], 9);
             }
             else 
             {
@@ -328,6 +331,8 @@ class CoronaTracker
             totals.population, 
             totals.infected,
             totals.infected_last,
+            totals.recovered,
+            totals.recovered_last,
             totals.dead,
             totals.dead_last
         );
