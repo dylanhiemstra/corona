@@ -10,7 +10,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style2.css">
 		<script src="js/Virus.js"></script>
 		<script src="js/Graph.js"></script>
 		<script src="js/Tooltip.js"></script>
@@ -26,29 +26,31 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 	</head>
 	<body>
-		<div id="stickytop">
-			<div id="stickytopHeader" class="full-width shadow">
-				<div id="stickytopCountry">
-					<p id="pageTitleRegion">loading</p>
-					<h1 id="pageTitle">covid-19 data</h1>
-					<p id="pageTitlePopulation">...</p>
-				</div>
+		<header>
+			<div class="item">
+				<p id="pageTitleRegion">loading</p>
+				<h1 id="pageTitle">covid-19 data</h1>
+				<p id="pageTitlePopulation">...</p>
+			</div>
+			<div class="item">
 				<div id="stickytopStats">
 					<div id="tooltip"></div>
 				</div>
 			</div>
-			<div id="graph" class="full-width">
-				<div id="graphcontainer1">
-					<canvas id="chartTotals" width="490" height="160"></canvas>
-				</div>
-				<div id="graphcontainer2">
-					<canvas id="chartDaily" width="490" height="160"></canvas>
-				</div>
+		</header>
+		<div id="graph">
+			<div id="graphcontainer1">-->
+				<canvas id="chartTotals" width="490" height="160"></canvas>
+			</div>
+			<div id="graphcontainer2">
+				<canvas id="chartDaily" width="490" height="160"></canvas>
 			</div>
 		</div>
+
 		<div id="datablock">
 			<div id="datacontainer" class="full-width"><br><p id="pageTitleRegion">loading...</p><br></div>
 		</div>
+
 		<footer id="infobox" class="full-width shadow">
 			<p>
 				Click on the column headers to change the sorting (default is <b>case fatality rate</b>).<br>
@@ -62,7 +64,7 @@
 			</p>
 			<pre>
 Formulas Used
-----------------------------------------------------------------------------	
+----------------------------------------------------------------------------
 case fatality rate   = (deaths / infected) * 100
 infection chance     = ((active cases / population) * people met) * 100
 change of infections = ((infections current / infections last) - 1) * 100
@@ -70,7 +72,7 @@ change of deaths     = ((deaths current / deaths last) - 1) * 100
 			</pre>
 		</footer>
 		<script>
-		//	attachCopyHandler('#cpbtn');    
+		//	attachCopyHandler('#cpbtn');
 			CoronaTracker.scheduleUpdate(1, 60000 * Config.updateInterval);
 		</script>
 	</body>
